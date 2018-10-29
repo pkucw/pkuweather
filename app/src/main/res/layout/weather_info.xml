@@ -3,7 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
    <!--Action Bar-->
-
+<!--定义相对布局
+   fill_parent:布满整个空间
+   center_vertical：限定它里面的内容要垂直居中显示
+   RelativeLayout 是相对布局，这意味着其中的所有控件如果不进行具体的位置确定，都将汇集在左上角
+   layout_marginTop
+   paddingLeft：布局里面的内容距离左面的距离
+   android:layout_alignParentRight="true"将控件的右边缘与父件的右边缘对齐-->
    <RelativeLayout
        android:id="@+id/title"
        android:layout_width="fill_parent"

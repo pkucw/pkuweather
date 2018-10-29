@@ -31,13 +31,15 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {//该类为主界面
     private static final int UPDATE_TODAY_WEATHER = 1;
-    private ImageView mUpdateBtn;
+    private ImageView mUpdateBtn;//更新按钮
     private ImageView mCitySelect;
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
             temperatureTv, climateTv, windTv, city_name_Tv;
     private ImageView weatherImg, pmImg;
+
+
 
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg){
@@ -56,8 +58,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.weather_info);
+        super.onCreate(savedInstanceState);//继承父类方法，savedInstanceState保存当前状态
+        setContentView(R.layout.weather_info);//为当前活动引入weather_info布局
+
+        initViewlist();
 
         mUpdateBtn = (ImageView) findViewById(R.id.title_update_btn);//获取相应按钮
         mUpdateBtn.setOnClickListener(this);
@@ -68,6 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         } else {
             Log.d("myWeather", "网络挂了");
+
             Toast.makeText(MainActivity.this, "网络挂了！", Toast.LENGTH_LONG).show();
         }
 
@@ -103,6 +108,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         temperatureTv.setText("N/A");
         climateTv.setText("N/A");
         windTv.setText("N/A");
+
+    }
+
+    //编写initViewlist方法实现城市列表的展示
+    private void initViewlist(){
+        //为mBackBtn设置监听事件
+
+
 
     }
 

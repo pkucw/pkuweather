@@ -9,6 +9,7 @@ public class NetUtil {
     public static final int NETWORK_NONE = 0;
     public static final int NETWORK_WIFI = 1;
     public static final int NETWORK_MOBILE = 2;
+    //获取网络权限
     public static int getNetworkState(Context context){
         ConnectivityManager conManager = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
