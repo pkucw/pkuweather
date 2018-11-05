@@ -116,6 +116,18 @@
              android:text="湿度：57%"
              android:textColor="@android:color/white"
              android:textSize="15sp" />
+         <!--当前温度信息-->
+         <TextView
+             android:id="@+id/wendu"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_below="@+id/time"
+             android:layout_marginRight="150dp"
+             android:singleLine="true"
+             android:text="当前温度：5°"
+             android:textColor="@android:color/white"
+             android:textSize="15sp"/>
          <!--PM2.5整体信息块-->
          <LinearLayout
              android:id="@+id/pm2_5_content"
@@ -241,6 +253,18 @@
                 android:layout_toRightOf="@id/weather_img"
                 android:singleLine="true"
                 android:text="微风"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"/>
+            <!--风向信息-->
+            <TextView
+                android:id="@+id/fengxiang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/wind"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/weather_img"
+                android:singleLine="true"
+                android:text="东南风"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"/>
 

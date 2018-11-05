@@ -42,5 +42,27 @@ public class City {
         return allFirstpy;
     }
 
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setFirstpy(String firstpy) {
+        this.firstpy = firstpy;
+    }
+
+    public void setAllpy(String allpy) {
+        this.allpy = allpy;
+    }
+
+    public void setAllFirstpy(String allFirstpy) {
+        this.allFirstpy = allFirstpy;
+    }
 }

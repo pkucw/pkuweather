@@ -111,6 +111,7 @@ public class TodayWeather {
     }
 
     @Override
+//将其它类型数据转化为字符串类型
     public String toString() {
         return "TodayWeather{" +
                 "city='" + city + '\'' +

@@ -15,19 +15,24 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+//创建类继承自Activity用于声明全局变量
 public class Myapplication extends Application{
     private static final String TAG="MyApp";
     private static Myapplication mApplication;
     private CityDB mCityDB;
+    //创建城市信息列表
     private List<City> mCityList;
     @Override
     public void onCreate(){
         super.onCreate();
         Log.d(TAG,"MyApplication->Oncreate");
         mApplication = this;
+        //打开数据库
         mCityDB = openCityDB();
+        //初始化城市信息列表
         initCityList();
     }
+//初始化城市信息列表
     private void initCityList(){
         mCityList = new ArrayList<City>();
         new Thread(new Runnable() {
@@ -37,7 +42,7 @@ public class Myapplication extends Application{
             }
         }).start();
     }
-
+//向城市信息列表中传值（代码和名称）
     private boolean prepareCityList(){
         mCityList = mCityDB.getAllCity();
         int i=0;
@@ -58,7 +63,7 @@ public class Myapplication extends Application{
     public static Myapplication getInstance(){
         return mApplication;
     }
-
+//创建打开数据库的方法
     private CityDB openCityDB(){
         String path = "/data"
                 + Environment.getDataDirectory().getAbsolutePath()
