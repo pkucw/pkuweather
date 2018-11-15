@@ -38,6 +38,8 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
             temperatureTv, climateTv, windTv, city_name_Tv,wenduTv,fengxiangTv;
     private ImageView weatherImg, pmImg;
+    //private String updatecitycode="-1";
+   // private String initcityCode="101010100";
 
 
 
@@ -61,7 +63,6 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
         super.onCreate(savedInstanceState);//继承父类方法，savedInstanceState保存当前状态
         setContentView(R.layout.weather_info);//为当前活动引入weather_info布局
 
-        initViewlist();
 
     //引用布局文件中的title_update_btn
         mUpdateBtn = (ImageView) findViewById(R.id.title_update_btn);
@@ -80,9 +81,16 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
 
         mCitySelect=(ImageView)findViewById(R.id.title_city_manager);
         mCitySelect.setOnClickListener(this);
-
-
         initView();
+
+       // updatecitycode = getIntent().getStringExtra("citycode");
+       // Log.d("testttt",updatecitycode);
+//        if(updatecitycode.equals("-1")){
+//            queryWeatherCode(initcityCode);
+//        }else {
+//            queryWeatherCode(updatecitycode);
+//        }
+        //queryWeatherCode(initcityCode);
     }
 
     //初始化控件内容
@@ -124,19 +132,12 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
 
     }
 
-    //编写initViewlist方法实现城市列表的展示
-    private void initViewlist(){
-        //为mBackBtn设置监听事件
-
-    }
 
     @Override
     public void onClick(View view) {
     //监听转换城市按钮
         if(view.getId()==R.id.title_city_manager){
-            //创建一个意图对象
             Intent i = new Intent(this,SelectCity.class);
-            //得到新打开Activity关闭后返回的数据
             startActivityForResult(i,1);
         }
     //监听当前城市数据更新按钮
@@ -162,7 +163,7 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
         if(requestCode == 1 && resultCode ==RESULT_OK){
             String newCityCode = data.getStringExtra("cityCode");
-            Log.d("myWeather","选择的城市代码为"+newCityCode);
+            Log.d("myWeather123","选择的城市代码为"+newCityCode);
             if(NetUtil.getNetworkState(this)!=NetUtil.NETWORK_NONE){
                 Log.d("myWeather","网络OK");
                 queryWeatherCode(newCityCode);
@@ -182,10 +183,11 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
 
 
 //获取网络数据
-    private void queryWeatherCode(String cityCode) {
-        final String address = "http://wthrcdn.etouch.cn/WeatherApi?citykey=101010100";
 
-        Log.d("myWeather", address);
+    private void queryWeatherCode(String cityCode) {
+        Log.d("testttt",cityCode);
+        final String address = "http://wthrcdn.etouch.cn/WeatherApi?citykey="+cityCode;
+        Log.d("myWeatheradress", address);
     //子线程
         new Thread(new Runnable() {
             @Override
