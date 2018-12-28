@@ -13,12 +13,12 @@ public class TodayWeather {
     private String high;
     private String low;
     private String type;
-    private String todayweek1,todaypicture1,wendufanwei1,tianqizhuangkuang1,fenglixinxi1;
-    private String todayweek2,todaypicture2,wendufanwei2,tianqizhuangkuang2,fenglixinxi2;
-    private String todayweek3,todaypicture3,wendufanwei3,tianqizhuangkuang3,fenglixinxi3;
-    private String todayweek4,todaypicture4,wendufanwei4,tianqizhuangkuang4,fenglixinxi4;
-    private String todayweek5,todaypicture5,wendufanwei5,tianqizhuangkuang5,fenglixinxi5;
-    private String todayweek6,todaypicture6,wendufanwei6,tianqizhuangkuang6,fenglixinxi6;
+    private String todayweek1,wenduH1,wenduL1,type1;
+    private String todayweek2,wenduH2,wenduL2,type2;
+    private String todayweek3,wenduH3,wenduL3,type3;
+    private String todayweek4,wenduH4,wenduL4,type4;
+    private String todayweek5,wenduH5,wenduL5,type5;
+    private String todayweek6,wenduH6,wenduL6,type6;
 
     @Override
     public String toString() {
@@ -36,278 +36,30 @@ public class TodayWeather {
                 ", low='" + low + '\'' +
                 ", type='" + type + '\'' +
                 ", todayweek1='" + todayweek1 + '\'' +
-                ", todaypicture1='" + todaypicture1 + '\'' +
-                ", wendufanwei1='" + wendufanwei1 + '\'' +
-                ", tianqizhuangkuang1='" + tianqizhuangkuang1 + '\'' +
-                ", fenglixinxi1='" + fenglixinxi1 + '\'' +
+                ", wenduH1='" + wenduH1 + '\'' +
+                ", wenduL1='" + wenduL1 + '\'' +
+                ", type1='" + type1 + '\'' +
                 ", todayweek2='" + todayweek2 + '\'' +
-                ", todaypicture2='" + todaypicture2 + '\'' +
-                ", wendufanwei2='" + wendufanwei2 + '\'' +
-                ", tianqizhuangkuang2='" + tianqizhuangkuang2 + '\'' +
-                ", fenglixinxi2='" + fenglixinxi2 + '\'' +
+                ", wenduH2='" + wenduH2 + '\'' +
+                ", wenduL2='" + wenduL2 + '\'' +
+                ", type2='" + type2 + '\'' +
                 ", todayweek3='" + todayweek3 + '\'' +
-                ", todaypicture3='" + todaypicture3 + '\'' +
-                ", wendufanwei3='" + wendufanwei3 + '\'' +
-                ", tianqizhuangkuang3='" + tianqizhuangkuang3 + '\'' +
-                ", fenglixinxi3='" + fenglixinxi3 + '\'' +
+                ", wenduH3='" + wenduH3 + '\'' +
+                ", wenduL3='" + wenduL3 + '\'' +
+                ", type3='" + type3 + '\'' +
                 ", todayweek4='" + todayweek4 + '\'' +
-                ", todaypicture4='" + todaypicture4 + '\'' +
-                ", wendufanwei4='" + wendufanwei4 + '\'' +
-                ", tianqizhuangkuang4='" + tianqizhuangkuang4 + '\'' +
-                ", fenglixinxi4='" + fenglixinxi4 + '\'' +
+                ", wenduH4='" + wenduH4 + '\'' +
+                ", wenduL4='" + wenduL4 + '\'' +
+                ", type4='" + type4 + '\'' +
                 ", todayweek5='" + todayweek5 + '\'' +
-                ", todaypicture5='" + todaypicture5 + '\'' +
-                ", wendufanwei5='" + wendufanwei5 + '\'' +
-                ", tianqizhuangkuang5='" + tianqizhuangkuang5 + '\'' +
-                ", fenglixinxi5='" + fenglixinxi5 + '\'' +
+                ", wenduH5='" + wenduH5 + '\'' +
+                ", wenduL5='" + wenduL5 + '\'' +
+                ", type5='" + type5 + '\'' +
                 ", todayweek6='" + todayweek6 + '\'' +
-                ", todaypicture6='" + todaypicture6 + '\'' +
-                ", wendufanwei6='" + wendufanwei6 + '\'' +
-                ", tianqizhuangkuang6='" + tianqizhuangkuang6 + '\'' +
-                ", fenglixinxi6='" + fenglixinxi6 + '\'' +
+                ", wenduH6='" + wenduH6 + '\'' +
+                ", wenduL6='" + wenduL6 + '\'' +
+                ", type6='" + type6 + '\'' +
                 '}';
-    }
-
-    public String getTodayweek4() {
-        return todayweek4;
-    }
-
-    public void setTodayweek4(String todayweek4) {
-        this.todayweek4 = todayweek4;
-    }
-
-    public String getTodaypicture4() {
-        return todaypicture4;
-    }
-
-    public void setTodaypicture4(String todaypicture4) {
-        this.todaypicture4 = todaypicture4;
-    }
-
-    public String getWendufanwei4() {
-        return wendufanwei4;
-    }
-
-    public void setWendufanwei4(String wendufanwei4) {
-        this.wendufanwei4 = wendufanwei4;
-    }
-
-    public String getTianqizhuangkuang4() {
-        return tianqizhuangkuang4;
-    }
-
-    public void setTianqizhuangkuang4(String tianqizhuangkuang4) {
-        this.tianqizhuangkuang4 = tianqizhuangkuang4;
-    }
-
-    public String getFenglixinxi4() {
-        return fenglixinxi4;
-    }
-
-    public void setFenglixinxi4(String fenglixinxi4) {
-        this.fenglixinxi4 = fenglixinxi4;
-    }
-
-    public String getTodayweek5() {
-        return todayweek5;
-    }
-
-    public void setTodayweek5(String todayweek5) {
-        this.todayweek5 = todayweek5;
-    }
-
-    public String getTodaypicture5() {
-        return todaypicture5;
-    }
-
-    public void setTodaypicture5(String todaypicture5) {
-        this.todaypicture5 = todaypicture5;
-    }
-
-    public String getWendufanwei5() {
-        return wendufanwei5;
-    }
-
-    public void setWendufanwei5(String wendufanwei5) {
-        this.wendufanwei5 = wendufanwei5;
-    }
-
-    public String getTianqizhuangkuang5() {
-        return tianqizhuangkuang5;
-    }
-
-    public void setTianqizhuangkuang5(String tianqizhuangkuang5) {
-        this.tianqizhuangkuang5 = tianqizhuangkuang5;
-    }
-
-    public String getFenglixinxi5() {
-        return fenglixinxi5;
-    }
-
-    public void setFenglixinxi5(String fenglixinxi5) {
-        this.fenglixinxi5 = fenglixinxi5;
-    }
-
-    public String getTodayweek6() {
-        return todayweek6;
-    }
-
-    public void setTodayweek6(String todayweek6) {
-        this.todayweek6 = todayweek6;
-    }
-
-    public String getTodaypicture6() {
-        return todaypicture6;
-    }
-
-    public void setTodaypicture6(String todaypicture6) {
-        this.todaypicture6 = todaypicture6;
-    }
-
-    public String getWendufanwei6() {
-        return wendufanwei6;
-    }
-
-    public void setWendufanwei6(String wendufanwei6) {
-        this.wendufanwei6 = wendufanwei6;
-    }
-
-    public String getTianqizhuangkuang6() {
-        return tianqizhuangkuang6;
-    }
-
-    public void setTianqizhuangkuang6(String tianqizhuangkuang6) {
-        this.tianqizhuangkuang6 = tianqizhuangkuang6;
-    }
-
-    public String getFenglixinxi6() {
-        return fenglixinxi6;
-    }
-
-    public void setFenglixinxi6(String fenglixinxi6) {
-        this.fenglixinxi6 = fenglixinxi6;
-    }
-
-
-    public void setTodayweek1(String todayweek1) {
-        this.todayweek1 = todayweek1;
-    }
-
-    public void setTodaypicture1(String todaypicture1) {
-        this.todaypicture1 = todaypicture1;
-    }
-
-    public void setWendufanwei1(String wendufanwei1) {
-        this.wendufanwei1 = wendufanwei1;
-    }
-
-    public void setTianqizhuangkuang1(String tianqizhuangkuang1) {
-        this.tianqizhuangkuang1 = tianqizhuangkuang1;
-    }
-
-    public void setFenglixinxi1(String fenglixinxi1) {
-        this.fenglixinxi1 = fenglixinxi1;
-    }
-
-    public void setTodayweek2(String todayweek2) {
-        this.todayweek2 = todayweek2;
-    }
-
-    public void setTodaypicture2(String todaypicture2) {
-        this.todaypicture2 = todaypicture2;
-    }
-
-    public void setWendufanwei2(String wendufanwei2) {
-        this.wendufanwei2 = wendufanwei2;
-    }
-
-    public void setTianqizhuangkuang2(String tianqizhuangkuang2) {
-        this.tianqizhuangkuang2 = tianqizhuangkuang2;
-    }
-
-    public void setFenglixinxi2(String fenglixinxi2) {
-        this.fenglixinxi2 = fenglixinxi2;
-    }
-
-    public void setTodayweek3(String todayweek3) {
-        this.todayweek3 = todayweek3;
-    }
-
-    public void setTodaypicture3(String todaypicture3) {
-        this.todaypicture3 = todaypicture3;
-    }
-
-    public void setWendufanwei3(String wendufanwei3) {
-        this.wendufanwei3 = wendufanwei3;
-    }
-
-    public void setTianqizhuangkuang3(String tianqizhuangkuang3) {
-        this.tianqizhuangkuang3 = tianqizhuangkuang3;
-    }
-
-    public void setFenglixinxi3(String fenglixinxi3) {
-        this.fenglixinxi3 = fenglixinxi3;
-    }
-
-    public String getTodayweek1() {
-
-        return todayweek1;
-    }
-
-    public String getTodaypicture1() {
-        return todaypicture1;
-    }
-
-    public String getWendufanwei1() {
-        return wendufanwei1;
-    }
-
-    public String getTianqizhuangkuang1() {
-        return tianqizhuangkuang1;
-    }
-
-    public String getFenglixinxi1() {
-        return fenglixinxi1;
-    }
-
-    public String getTodayweek2() {
-        return todayweek2;
-    }
-
-    public String getTodaypicture2() {
-        return todaypicture2;
-    }
-
-    public String getWendufanwei2() {
-        return wendufanwei2;
-    }
-
-    public String getTianqizhuangkuang2() {
-        return tianqizhuangkuang2;
-    }
-
-    public String getFenglixinxi2() {
-        return fenglixinxi2;
-    }
-
-    public String getTodayweek3() {
-        return todayweek3;
-    }
-
-    public String getTodaypicture3() {
-        return todaypicture3;
-    }
-
-    public String getWendufanwei3() {
-        return wendufanwei3;
-    }
-
-    public String getTianqizhuangkuang3() {
-        return tianqizhuangkuang3;
-    }
-
-    public String getFenglixinxi3() {
-        return fenglixinxi3;
     }
 
     public String getCity() {
@@ -406,5 +158,195 @@ public class TodayWeather {
         this.type = type;
     }
 
+    public String getTodayweek1() {
+        return todayweek1;
+    }
 
+    public void setTodayweek1(String todayweek1) {
+        this.todayweek1 = todayweek1;
+    }
+
+    public String getWenduH1() {
+        return wenduH1;
+    }
+
+    public void setWenduH1(String wenduH1) {
+        this.wenduH1 = wenduH1;
+    }
+
+    public String getWenduL1() {
+        return wenduL1;
+    }
+
+    public void setWenduL1(String wenduL1) {
+        this.wenduL1 = wenduL1;
+    }
+
+    public String getType1() {
+        return type1;
+    }
+
+    public void setType1(String type1) {
+        this.type1 = type1;
+    }
+
+    public String getTodayweek2() {
+        return todayweek2;
+    }
+
+    public void setTodayweek2(String todayweek2) {
+        this.todayweek2 = todayweek2;
+    }
+
+    public String getWenduH2() {
+        return wenduH2;
+    }
+
+    public void setWenduH2(String wenduH2) {
+        this.wenduH2 = wenduH2;
+    }
+
+    public String getWenduL2() {
+        return wenduL2;
+    }
+
+    public void setWenduL2(String wenduL2) {
+        this.wenduL2 = wenduL2;
+    }
+
+    public String getType2() {
+        return type2;
+    }
+
+    public void setType2(String type2) {
+        this.type2 = type2;
+    }
+
+    public String getTodayweek3() {
+        return todayweek3;
+    }
+
+    public void setTodayweek3(String todayweek3) {
+        this.todayweek3 = todayweek3;
+    }
+
+    public String getWenduH3() {
+        return wenduH3;
+    }
+
+    public void setWenduH3(String wenduH3) {
+        this.wenduH3 = wenduH3;
+    }
+
+    public String getWenduL3() {
+        return wenduL3;
+    }
+
+    public void setWenduL3(String wenduL3) {
+        this.wenduL3 = wenduL3;
+    }
+
+    public String getType3() {
+        return type3;
+    }
+
+    public void setType3(String type3) {
+        this.type3 = type3;
+    }
+
+    public String getTodayweek4() {
+        return todayweek4;
+    }
+
+    public void setTodayweek4(String todayweek4) {
+        this.todayweek4 = todayweek4;
+    }
+
+    public String getWenduH4() {
+        return wenduH4;
+    }
+
+    public void setWenduH4(String wenduH4) {
+        this.wenduH4 = wenduH4;
+    }
+
+    public String getWenduL4() {
+        return wenduL4;
+    }
+
+    public void setWenduL4(String wenduL4) {
+        this.wenduL4 = wenduL4;
+    }
+
+    public String getType4() {
+        return type4;
+    }
+
+    public void setType4(String type4) {
+        this.type4 = type4;
+    }
+
+    public String getTodayweek5() {
+        return todayweek5;
+    }
+
+    public void setTodayweek5(String todayweek5) {
+        this.todayweek5 = todayweek5;
+    }
+
+    public String getWenduH5() {
+        return wenduH5;
+    }
+
+    public void setWenduH5(String wenduH5) {
+        this.wenduH5 = wenduH5;
+    }
+
+    public String getWenduL5() {
+        return wenduL5;
+    }
+
+    public void setWenduL5(String wenduL5) {
+        this.wenduL5 = wenduL5;
+    }
+
+    public String getType5() {
+        return type5;
+    }
+
+    public void setType5(String type5) {
+        this.type5 = type5;
+    }
+
+    public String getTodayweek6() {
+        return todayweek6;
+    }
+
+    public void setTodayweek6(String todayweek6) {
+        this.todayweek6 = todayweek6;
+    }
+
+    public String getWenduH6() {
+        return wenduH6;
+    }
+
+    public void setWenduH6(String wenduH6) {
+        this.wenduH6 = wenduH6;
+    }
+
+    public String getWenduL6() {
+        return wenduL6;
+    }
+
+    public void setWenduL6(String wenduL6) {
+        this.wenduL6 = wenduL6;
+    }
+
+    public String getType6() {
+        return type6;
+    }
+
+    public void setType6(String type6) {
+        this.type6 = type6;
+    }
 }

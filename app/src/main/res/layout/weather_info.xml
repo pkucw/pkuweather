@@ -275,29 +275,32 @@
       <!--未来六日天气信息-->
       <RelativeLayout
           android:id="@+id/futureweather"
-          android:layout_width="match_parent"
+          android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:padding="10dp">
+         <!--展示滑动的界面-->
          <android.support.v4.view.ViewPager
              android:id="@+id/viewpager_sixdays"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent">
          </android.support.v4.view.ViewPager>
          //滑动窗口时的两个小点
          <LinearLayout
-             android:id="@+id/dots"
+             android:id="@+id/sixdaypart1"
              android:orientation="horizontal"
-             android:layout_width="wrap_content"
-             android:layout_height="match_parent"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
              android:gravity="center"
              android:layout_alignParentBottom="true">
             <ImageView
                 android:id="@+id/dots1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
                 android:src="@drawable/viewpagerdot1"/>
             <ImageView
                 android:id="@+id/dots2"
+                android:paddingLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/viewpagerdot2"/>
