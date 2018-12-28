@@ -6,12 +6,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.example.dell.bean.TodayWeather;
 import com.example.dell.util.NetUtil;
 
@@ -26,22 +31,58 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 
-public class MainActivity extends Activity implements View.OnClickListener {//该类为主界面
+public class MainActivity extends Activity implements View.OnClickListener{//该类为主界面
     private static final int UPDATE_TODAY_WEATHER = 1;
     private ImageView mUpdateBtn;//更新按钮
     private ImageView mCitySelect;//选择城市
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
             temperatureTv, climateTv, windTv, city_name_Tv,wenduTv,fengxiangTv;
     private ImageView weatherImg, pmImg;
-    //private String updatecitycode="-1";
-   // private String initcityCode="101010100";
+    private ViewPageAdapter viewPageAdapter;
+    private ViewPager viewPager;
+    private List<View> pagerview;
+    //增加小圆点
+    private ImageView[] dots;
+    private int[] ids = {R.id.dots1,R.id.dots2};
+    private TextView todayweekTv1,wendufanweiTv1,tianqizhuangkuangTv1,fenglixinxiTv1;
+    LocationClient locationClient = null;//用户位置代理
+    String nowcode = null;//当前定位的城市代码
+   // BDLocationListener bdLocationListener = new MyLocationListener();//监听用户位置代理
 
+//监听定位事件
+    /*private class MyLocationListener implements BDLocationListener{
+        @Override
+        public void onReceiveLocation(BDLocation bdLocation){
+            Log.d("当前定位1",":"+bdLocation.getCountry());
+            nowcode = bdLocation.getCity();
+            nowcode = nowcode.replace("市","");
+            nowcode = nowcode.replace("省","");
+            Log.d("当前定位2","定位显示："+nowcode);
+        }
+    }*/
 
+//查询用户定位
+    /*private void nowLocate(){
+        locationClient = new LocationClient(getApplicationContext());//创建一个用户位置代理
+        locationClient.registerLocationListener(bdLocationListener);//注册监听事件
+        LocationClientOption locationClientOption = new LocationClientOption();//用户位置代理选项类
+        locationClientOption.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);//省电模式
+        locationClientOption.setCoorType("bd0911");//定位模式
+        locationClientOption.setOpenGps(true);//打开GPS
+        locationClientOption.setLocationNotify(true);//设置位置接受频率为1/1s
+        locationClientOption.setIsNeedAddress(true);//设置默认不接受地址
+        locationClientOption.setIsNeedLocationDescribe(true);//设置需要地址语义化结果
+        locationClientOption.setIsNeedLocationPoiList(true);//设置是否需要POI检索
+        locationClientOption.setIgnoreKillProcess(true);//stop的时候杀死进程
+        locationClient.setLocOption(locationClientOption);//将选项加载至用户代理类
+        locationClient.start();//开始加载
+    }*/
 
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg){
@@ -62,38 +103,26 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//继承父类方法，savedInstanceState保存当前状态
         setContentView(R.layout.weather_info);//为当前活动引入weather_info布局
-
-
-    //引用布局文件中的title_update_btn
-        mUpdateBtn = (ImageView) findViewById(R.id.title_update_btn);
-    //监听事件
-        mUpdateBtn.setOnClickListener(this);
-    //将网络状态显示在控制台以及界面上
+        mUpdateBtn = (ImageView) findViewById(R.id.title_update_btn);//引用布局文件中的title_update_btn
+        mUpdateBtn.setOnClickListener(this);//监听事件
+        //将网络状态显示在控制台以及界面上
         if (NetUtil.getNetworkState(this) != NetUtil.NETWORK_NONE) {
             Log.d("myWeather", "网络OK");
-            Toast.makeText(MainActivity.this, "网络OK!!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "当前网络正常，app可为您提供服务", Toast.LENGTH_LONG).show();
 
         } else {
             Log.d("myWeather", "网络挂了");
 
-            Toast.makeText(MainActivity.this, "网络挂了！", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "抱歉，您的网络状态有问题", Toast.LENGTH_LONG).show();
         }
-
         mCitySelect=(ImageView)findViewById(R.id.title_city_manager);
         mCitySelect.setOnClickListener(this);
         initView();
+       // nowLocate();//查询当前定位
 
-       // updatecitycode = getIntent().getStringExtra("citycode");
-       // Log.d("testttt",updatecitycode);
-//        if(updatecitycode.equals("-1")){
-//            queryWeatherCode(initcityCode);
-//        }else {
-//            queryWeatherCode(updatecitycode);
-//        }
-        //queryWeatherCode(initcityCode);
     }
 
-    //初始化控件内容
+//初始化控件内容
     void initView() {
         city_name_Tv = (TextView) findViewById(R.id.title_city_name);
         cityTv = (TextView) findViewById(R.id.city);
@@ -183,7 +212,6 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
 
 
 //获取网络数据
-
     private void queryWeatherCode(String cityCode) {
         Log.d("testttt",cityCode);
         final String address = "http://wthrcdn.etouch.cn/WeatherApi?citykey="+cityCode;
@@ -328,6 +356,7 @@ public class MainActivity extends Activity implements View.OnClickListener {//�
         }
         return todayWeather;
     }
+
 //更新UI中的控件
     void updateTodayWeather(TodayWeather todayWeather) {
         city_name_Tv.setText(todayWeather.getCity() + "天气");

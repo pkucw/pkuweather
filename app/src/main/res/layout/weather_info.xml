@@ -271,7 +271,40 @@
          </RelativeLayout>
 
       </RelativeLayout>
-      <!--七日天气信息-->
+
+      <!--未来六日天气信息-->
+      <RelativeLayout
+          android:id="@+id/futureweather"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="10dp">
+         <android.support.v4.view.ViewPager
+             android:id="@+id/viewpager_sixdays"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         </android.support.v4.view.ViewPager>
+         //滑动窗口时的两个小点
+         <LinearLayout
+             android:id="@+id/dots"
+             android:orientation="horizontal"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             android:layout_alignParentBottom="true">
+            <ImageView
+                android:id="@+id/dots1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/viewpagerdot1"/>
+            <ImageView
+                android:id="@+id/dots2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/viewpagerdot2"/>
+
+         </LinearLayout>
+
+      </RelativeLayout>
       <!--广告等信息-->
 
    </LinearLayout>

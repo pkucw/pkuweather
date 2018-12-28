@@ -5,6 +5,8 @@ import android.app.Application;
 import android.os.Environment;
 import android.util.Log;
 
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
 import com.example.dell.bean.City;
 import com.example.dell.db.CityDB;
 
@@ -20,17 +22,17 @@ public class Myapplication extends Application{
     private static final String TAG="MyApp";
     private static Myapplication mApplication;
     private CityDB mCityDB;
-    //创建城市信息列表
-    private List<City> mCityList;
+    private List<City> mCityList;//创建城市信息列表
     @Override
     public void onCreate(){
         super.onCreate();
         Log.d(TAG,"MyApplication->Oncreate");
         mApplication = this;
-        //打开数据库
-        mCityDB = openCityDB();
-        //初始化城市信息列表
-        initCityList();
+        mCityDB = openCityDB();//打开数据库
+        initCityList(); //初始化城市信息列表
+        //SDKInitializer.initialize(this); //定位功能初始化，初始化context信息，传入application
+        SDKInitializer.setCoordType(CoordType.BD09LL);//设置使用的定位功能坐标类型,使用BD09Li类型
+
     }
 //初始化城市信息列表
     private void initCityList(){

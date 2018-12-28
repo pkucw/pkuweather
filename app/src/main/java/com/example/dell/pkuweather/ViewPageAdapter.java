@@ -17,16 +17,19 @@ public class ViewPageAdapter extends PagerAdapter {
         this.pagerview = pagerview;
     }
 
+    //返回滑动页面页码
     @Override
     public Object instantiateItem(ViewGroup container,int position){
         container.addView(pagerview.get(position));
         return pagerview.get(position);
-
     }
+
+    //返回滑动页面大小
     @Override
     public int getCount(){
         return pagerview.size();
     }
+
     @Override
     public void destroyItem(ViewGroup container,int position,Object object){
         container.removeViewAt(position);

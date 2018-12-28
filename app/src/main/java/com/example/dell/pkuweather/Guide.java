@@ -25,6 +25,7 @@ public class Guide extends Activity {
         benter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //点击后跳转至MainActivity事件
                 Intent intent = new Intent(Guide.this,MainActivity.class);
                 startActivity(intent);
                 finish();

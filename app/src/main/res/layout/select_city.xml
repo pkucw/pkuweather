@@ -9,14 +9,6 @@
         android:layout_height="45.0dp"
         android:background="#ffcd2626">
 
-        <!--<TextView
-            android:id="@+id/title_name"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:text="当前城市：bj"
-            android:textColor="#ffffffff"
-            android:textSize="20.0dp" />-->
         <EditText
             android:id="@+id/search_text"
             android:singleLine="true"
